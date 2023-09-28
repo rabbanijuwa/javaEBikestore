@@ -68,34 +68,41 @@ public class Product {
             this.size = size;
             this.color = color;
         }
-        public String getAccessoryCategory(){
+
+        public String getAccessoryCategory() {
             return accessoryCategory;
         }
-        public void setAccessoryCategory(String accessoryCategory){
-            this.accessoryCategory=accessoryCategory;
+
+        public void setAccessoryCategory(String accessoryCategory) {
+            this.accessoryCategory = accessoryCategory;
         }
-        public String getSize(){
+
+        public String getSize() {
             return size;
         }
-        public void setSize(String size){
-            this.size=size;
+
+        public void setSize(String size) {
+            this.size = size;
         }
-        public String getColor(){
+
+        public String getColor() {
             return color;
         }
-        public void getColor(String color){
+
+        public void getColor(String color) {
             this.color = color;
         }
 
 
-
     }
-    class EBike extends Product{
+
+    class EBike extends Product {
         private double batteryCapacity;
         private double motorPower;
         private int maximumSpeed;
         private EBikeCategory category;
-        public EBike(String productName, String description, double price, int stockQuantity, double batteryCapacity, double motorPower, int maximumSpeed, EBikeCategory category){
+
+        public EBike(String productName, String description, double price, int stockQuantity, double batteryCapacity, double motorPower, int maximumSpeed, EBikeCategory category) {
             super(id, productName, description, price, stockQuantity);
             this.batteryCapacity = batteryCapacity;
             this.motorPower = motorPower;
@@ -103,25 +110,32 @@ public class Product {
             this.category = category;
 
         }
+
         //getters and setters
-        public double getBatteryCapacity(){
+        public double getBatteryCapacity() {
             return batteryCapacity;
         }
-        public void setBatteryCapacity(double batteryCapacity){
+
+        public void setBatteryCapacity(double batteryCapacity) {
             this.batteryCapacity = batteryCapacity;
         }
-        public double getMotorPower(){
+
+        public double getMotorPower() {
             return motorPower;
         }
-        public void setMotorPower(double motorPower){
-            this.motorPower=motorPower;
+
+        public void setMotorPower(double motorPower) {
+            this.motorPower = motorPower;
         }
-        public int getMaximumSpeed(){
+
+        public int getMaximumSpeed() {
             return maximumSpeed;
         }
-        public void setMaximumSpeed(){
-            this.maximumSpeed=maximumSpeed;
+
+        public void setMaximumSpeed() {
+            this.maximumSpeed = maximumSpeed;
         }
+
         //getter method for category
         public EBikeCategory getCategory() {
             return category;
@@ -129,12 +143,14 @@ public class Product {
 
 
     }
-    class Customer{
+
+    class Customer {
         private int customerID;
         private String name;
         private String email;
         private String address;
         private String phoneNumber;
+
         public Customer(int customerId, String name, String email, String address, String phoneNumber) {
             this.customerID = customerId;
             this.name = name;
@@ -142,39 +158,100 @@ public class Product {
             this.address = address;
             this.phoneNumber = phoneNumber;
         }
+
         //getters and setters
-        public int getCustomerID(){
+        public int getCustomerID() {
             return customerID;
         }
-        public void setCustomerID(int customerID){
-            this.customerID=customerID;
+
+        public void setCustomerID(int customerID) {
+            this.customerID = customerID;
         }
-        public String getName(){
+
+        public String getName() {
             return name;
         }
-        public void setName(String name){
-            this.name=name;
+
+        public void setName(String name) {
+            this.name = name;
         }
-        public String getEmail(){
+
+        public String getEmail() {
             return email;
         }
-        public void setEmail(){
-            this.email=email;
+
+        public void setEmail() {
+            this.email = email;
         }
-        public String getAddress(){
+
+        public String getAddress() {
             return address;
         }
 
         public void setAddress(String address) {
             this.address = address;
         }
-        public String getPhoneNumber(){
+
+        public String getPhoneNumber() {
             return phoneNumber;
         }
 
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
+    }
+
+    class NewCustomer extends Customer {
+        private String registrationDate;
+
+        public NewCustomer(int customerID, String name, String email, String address, String phoneNumber, String registrationDate) {
+            super(customerID, name, email, address, phoneNumber);
+            this.registrationDate = registrationDate;
+        }
+
+        // Getter and setter methods for the registration date
+        public String getRegistrationDate(){
+            return registrationDate;
+        }
+        public void setRegistrationDate(String registrationDate){
+            this.registrationDate=registrationDate;
+        }
+
+
+        // Polymorphism-Prompt new customers to enter their information
+        public void enterCustomerInformation() {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Welcome, new customer! Please enter your registration date:");
+            System.out.println("Enter your email:");
+            System.out.println("Enter your address:");
+            System.out.println("Enter your phone number");
+            registrationDate = scanner.nextLine();
+            // You can add more prompts for additional information if needed
+        }
+    }
+
+    class ReturningCustomer extends Customer {
+        private int loyaltyPoints;
+
+        public ReturningCustomer(int customerID, String name, String email, String address, String phoneNumber, int loyaltyPoints) {
+            super(customerID, name, email, address, phoneNumber);
+            this.loyaltyPoints = loyaltyPoints;
+        }
+        //getters and setters for loyalty points
+        public int getLoyaltyPoints() {
+            return loyaltyPoints;
+        }
+        public void setLoyaltyPoints(int customerID){
+            this.loyaltyPoints=loyaltyPoints;
+        }
+        //polymorphism--Prompt returning customers to enter their information
+        public void enterCustomerInformation() {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Welcome back, returning customer! Please enter your loyalty points:");
+            loyaltyPoints = scanner.nextInt();
+            // You can add more prompts for additional information if needed
+        }
+
     }
 }
 
