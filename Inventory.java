@@ -3,9 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 public class Inventory {
     private List<Product.EBike> availableEBikes;
+    private List<Product.Accessory> availableAccessories;
 
     public Inventory() {
         availableEBikes = new ArrayList<>();
+        availableAccessories = new ArrayList<>();
     }
 
     public void addEBike(Product.EBike eBike) {
@@ -15,6 +17,14 @@ public class Inventory {
     public void removeBike(Product.EBike eBike) {
         availableEBikes.remove(eBike);
     }
+    public void addAccessory(Product.Accessory accessory) {
+        availableAccessories.add(accessory);
+    }
+    public void removeAccessory(Product.Accessory accessory) {
+        availableAccessories.remove(accessory);
+    }
+
+
 
     //search for bikes by category
     public List<Product.EBike> searchEBikesByCategory(EBikeCategory category) {
@@ -43,4 +53,8 @@ public class Inventory {
         return availableEBikes;
 
     }
+    public List<Product.Accessory> getAvailableAccessories() {
+        return availableAccessories;
+    }
+
 }
