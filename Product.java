@@ -58,23 +58,19 @@ public class Product {
 
 
     class Accessory extends Product {
-        private String accessoryCategory;
+        private AccessoryCategory accessoryCategory;
         private String size;
         private String color;
 
-        public Accessory(String productName, String description, double price, int stockQuantity, String accessoryCategory, String size, String color) {
+        public Accessory(String productName, String description, double price, int stockQuantity, AccessoryCategory accessoryCategory, String size, String color) {
             super(id, productName, description, price, stockQuantity);
             this.accessoryCategory = accessoryCategory;
             this.size = size;
             this.color = color;
         }
 
-        public String getAccessoryCategory() {
+        public AccessoryCategory getAccessoryCategory() {
             return accessoryCategory;
-        }
-
-        public void setAccessoryCategory(String accessoryCategory) {
-            this.accessoryCategory = accessoryCategory;
         }
 
         public String getSize() {
@@ -253,5 +249,6 @@ public class Product {
         }
 
     }
+
 }
 
