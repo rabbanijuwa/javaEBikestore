@@ -8,6 +8,7 @@ public class Product {
     private double price;
     private int stockQuantity;
 
+
     public Product(int id, String productName, String description, double price, int stockQuantity) {
         this.id = id;
         this.productName = productName;
@@ -57,28 +58,36 @@ public class Product {
     }
 
 
-    class Accessory extends Product {
+    static class Accessory extends Product {
+        private int id;
         private AccessoryCategory accessoryCategory;
-        private String size;
+        private Size size;
         private String color;
 
-        public Accessory(String productName, String description, double price, int stockQuantity, AccessoryCategory accessoryCategory, String size, String color) {
+        public Accessory(String productName, String description, double price, int stockQuantity, int id, AccessoryCategory accessoryCategory, Size size, String color) {
             super(id, productName, description, price, stockQuantity);
+            this.id=id;
             this.accessoryCategory = accessoryCategory;
             this.size = size;
             this.color = color;
+        }
+
+        public int getId(){
+            return id;
+        }
+
+        @Override
+        public void setId(int id) {
+            this.id = id;
         }
 
         public AccessoryCategory getAccessoryCategory() {
             return accessoryCategory;
         }
 
-        public String getSize() {
+        public Size getSize() {
             return size;
-        }
 
-        public void setSize(String size) {
-            this.size = size;
         }
 
         public String getColor() {
@@ -92,43 +101,35 @@ public class Product {
 
     }
 
-    class EBike extends Product {
-        private double batteryCapacity;
-        private double motorPower;
-        private int maximumSpeed;
+    static class EBike extends Product {
+        private int id;
+        private double maximumSpeed;
         private EBikeCategory category;
 
-        public EBike(String productName, String description, double price, int stockQuantity, double batteryCapacity, double motorPower, int maximumSpeed, EBikeCategory category) {
+        public EBike(String productName, String description, double price, int stockQuantity, int id, double maximumSpeed, EBikeCategory category) {
             super(id, productName, description, price, stockQuantity);
-            this.batteryCapacity = batteryCapacity;
-            this.motorPower = motorPower;
+            this.id = id;
+            this.category = category;
             this.maximumSpeed = maximumSpeed;
             this.category = category;
 
         }
 
         //getters and setters
-        public double getBatteryCapacity() {
-            return batteryCapacity;
+        public int getId(){
+            return id;
         }
 
-        public void setBatteryCapacity(double batteryCapacity) {
-            this.batteryCapacity = batteryCapacity;
+        @Override
+        public void setId(int id) {
+            this.id = id;
         }
 
-        public double getMotorPower() {
-            return motorPower;
-        }
-
-        public void setMotorPower(double motorPower) {
-            this.motorPower = motorPower;
-        }
-
-        public int getMaximumSpeed() {
+        public double getMaximumSpeed() {
             return maximumSpeed;
         }
 
-        public void setMaximumSpeed() {
+        public void setMaximumSpeed(double maximumSpeed) {
             this.maximumSpeed = maximumSpeed;
         }
 
@@ -249,6 +250,7 @@ public class Product {
         }
 
     }
+
 
 }
 
