@@ -1,3 +1,6 @@
+/**
+ * Enumerates e-bike categories
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -17,6 +20,8 @@ public class Main {
 
         inventory.addAccessory(Accessory1);
         inventory.addAccessory(Accessory2);
+
+
 
     }
 }

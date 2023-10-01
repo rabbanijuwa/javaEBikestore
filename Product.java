@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Represents a product in the store, including e-bikes and accessories.
+ */
 public class Product {
     private int id;
     private String productName;
@@ -17,47 +20,88 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
+    /**
+     * Getter method for Id
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * setter method for Id
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * getter method for productName
+     * @return productName
+     */
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * setter for productName
+     * @param productName
+     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
+    /**
+     * getter for description
+     * @return description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * setter for description
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * getter for price
+     * @return price
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * setter for price
+     * @param price
+     */
     public void setPrice(double price) {
         this.price = price;
     }
 
+    /**
+     * getter for stockQuantity
+     * @return stockQuantity
+     */
     public int getStockQuantity() {
         return stockQuantity;
     }
 
+    /**
+     * setter for stockQuantity
+     */
     public void setStockQuantity() {
         this.stockQuantity = stockQuantity;
     }
 
-
+    /**
+     * Represents an accessory product, a subclass of Product
+     */
     static class Accessory extends Product {
         private int id;
         private AccessoryCategory accessoryCategory;
@@ -72,35 +116,61 @@ public class Product {
             this.color = color;
         }
 
+        /**
+         * getter for id, generated form Product
+         * @return id
+         */
         public int getId(){
             return id;
         }
 
+        /**
+         * setter for id, generated from Product
+         * @param id
+         */
         @Override
         public void setId(int id) {
             this.id = id;
         }
 
+        /**
+         * Getter for accessoryCategory from enum
+         * @return accessoryCategory
+         */
         public AccessoryCategory getAccessoryCategory() {
             return accessoryCategory;
         }
 
+        /**
+         * getter for size from enum
+         * @return size
+         */
         public Size getSize() {
             return size;
-
         }
 
+        /**
+         * getter for color
+         * @return color
+         */
         public String getColor() {
             return color;
         }
 
-        public void getColor(String color) {
+        /**
+         * setter for color
+         * @param color
+         */
+        public void setColor(String color) {
             this.color = color;
         }
 
 
     }
 
+    /**
+     * Represents an e-bike product, a subclass of Product
+     */
     static class EBike extends Product {
         private int id;
         private double maximumSpeed;
@@ -116,7 +186,7 @@ public class Product {
         }
 
         //getters and setters
-        public int getId(){
+        public int getId() {
             return id;
         }
 
@@ -141,6 +211,9 @@ public class Product {
 
     }
 
+    /**
+     * Represents a customer of the store
+     */
     class Customer {
         private int customerID;
         private String name;
@@ -198,6 +271,9 @@ public class Product {
         }
     }
 
+    /**
+     *Represents a new customer, a subclass of Customer
+     */
     class NewCustomer extends Customer {
         private String registrationDate;
 
@@ -215,7 +291,9 @@ public class Product {
         }
 
 
-        // Polymorphism-Prompt new customers to enter their information
+        /**
+         * Polymorphism-Prompt new customers to enter their information
+         */
         public void enterCustomerInformation() {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Welcome, new customer! Please enter your registration date:");
@@ -223,10 +301,12 @@ public class Product {
             System.out.println("Enter your address:");
             System.out.println("Enter your phone number");
             registrationDate = scanner.nextLine();
-            // You can add more prompts for additional information if needed
         }
     }
 
+    /**
+     * Represents a returning customer, a subclass of Customer
+     */
     class ReturningCustomer extends Customer {
         private int loyaltyPoints;
 
@@ -241,7 +321,10 @@ public class Product {
         public void setLoyaltyPoints(int customerID){
             this.loyaltyPoints=loyaltyPoints;
         }
-        //polymorphism--Prompt returning customers to enter their information
+
+        /**
+         * polymorphism--Prompt returning customers to enter their information
+         */
         public void enterCustomerInformation() {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Welcome back, returning customer! Please enter your loyalty points:");

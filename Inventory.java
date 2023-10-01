@@ -1,6 +1,10 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * class that represents the store's inventory
+ */
 public class Inventory {
     private List<Product.EBike> availableEBikes;
     private List<Product.Accessory> availableAccessories;
@@ -25,8 +29,9 @@ public class Inventory {
     }
 
 
-
-    //search for bikes by category
+    /**
+     * search for bikes by category
+     */
     public List<Product.EBike> searchEBikesByCategory(EBikeCategory category) {
         List<Product.EBike> result = new ArrayList<>();
         for (Product.EBike eBike : availableEBikes) {
@@ -38,7 +43,11 @@ public class Inventory {
 
     }
 
-    // Search for e-bikes by maximum speed
+    /**
+     * Search for e-bikes by maximum speed
+     * @param speed
+     * @return result
+     */
     public List<Product.EBike> searchEBikesByMaximumSpeed(int speed) {
         List<Product.EBike> result = new ArrayList<>();
         for (Product.EBike eBike : availableEBikes) {
